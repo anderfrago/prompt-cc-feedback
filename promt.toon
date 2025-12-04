@@ -6,9 +6,9 @@ output:
    "id": "número incremental empezando en 0" 
         "nombre": " nombre del estudiante."
         "email": "email del estudiante"
-        "intro": "frase introductoria"
+        "intro": "breve frase introductoria, por ejemplo Hola nombre,"
         "competencia_evaluada":
-          "nombre_competencia": "Nombre de la competencia evaluada: descripción"
+          "nombre_competencia": "Nombre de la competencia evaluada"
           "nota": "nota competencia"
           "rubrica": "mensaje obtenido desde los niveles de competencia"
           recomendaciones: 2 frases con consejos prácticos para que el estudiante pueda mejorar en esta competencia.
