@@ -5,7 +5,7 @@ output:
   language: español
   format: email
   structure:
-   "identificador alumno": 
+   "id": "número incremental empezando en 0" 
         "nombre": " nombre del estudiante."
         "email": "email del estudiante"
         co"mpetencia_evaluada":
