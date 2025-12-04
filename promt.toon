@@ -1,5 +1,5 @@
  
-task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, reduce a 1MB la respuesta eliminando otros contenidos"
+task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, retorna un objeto JSON"
 tone: docente
 output:
   language: español
