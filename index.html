@@ -112,14 +112,10 @@
                     } else {
                         // Iterating through the detected list
                         peopleList.forEach(person => {
-                            let personString = `Hola ${person.nombre}, %0D%0A`;
-                            personString += `${person.intro}%0D%0A`;
-
+                            let personString = `${person.intro}%0D%0A`;
                             personString += "COMPETENCIAS:%0D%0A";
-
                             // Loop through the competencies array
                             person.competencia_evaluada.forEach(comp => {
-                                // .trim() removes the extra whitespace found in your data (e.g., "4.COMPETENCIA DIGITAL      ")
                                 personString += `%0D%0A📊  ${comp.nombre_competencia.trim()}%0D%0A`
                                 personString += ` ⭐  Nota: ${comp.nota}%0D%0A`;
                                 personString += ` 📘  Rubrica: ${comp.rubrica}%0D%0A`;
