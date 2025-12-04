@@ -5,13 +5,14 @@ output:
   language: español
   format: email
   structure:
-    "nombre": " nombre del estudiante."
-    "email": "email del estudiante"
-    co"mpetencia_evaluada":
-      "nombre_competencia": Nombre de la competencia evaluada.
-      "nota": "nota competencia"
-      recomendaciones: 2 frases con consejos prácticos para que el estudiante pueda mejorar en esta competencia.
-    "conclusión": Comentario final alentador y motivador para el estudiante.
+   "indice alumna": 
+        "nombre": " nombre del estudiante."
+        "email": "email del estudiante"
+        co"mpetencia_evaluada":
+          "nombre_competencia": Nombre de la competencia evaluada.
+          "nota": "nota competencia"
+          recomendaciones: 2 frases con consejos prácticos para que el estudiante pueda mejorar en esta competencia.
+        "conclusión": Comentario final alentador y motivador para el estudiante.
 input:
   format: Excel file
   sheet_name: NOTAS_CC
