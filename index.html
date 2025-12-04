@@ -112,7 +112,7 @@
                     } else {
                         // Iterating through the detected list
                         peopleList.forEach(person => {
-                            personString += `Hola : ${person.nombre}, %0D%0A`;
+                            let personString = `Hola ${person.nombre}, %0D%0A`;
                             personString += `${person.intro}%0D%0A`;
 
                             personString += "COMPETENCIAS:%0D%0A";
@@ -137,6 +137,8 @@
                             });
 
                             personString += `${person.conclusión}%0D%0A`;
+                            personString += `Atentamente el equipo docente.`;
+
                             document.getElementById("results").innerHTML +=
                                 `
                             <li class="list-group-item">
