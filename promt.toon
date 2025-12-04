@@ -1,13 +1,15 @@
  
-task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave en formato email por cada uno de los alumnos en el documento de entrada"
+task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, reduce a 1MB la respuesta eliminando otros contenidos"
 tone: docente
 output:
   language: español
-  format: json
+  format: email
   structure:
-    "introducción": " nombre y puntuación por competenci del estudiante."
-    competencia_evaluada:
-      nombre_competencia: Nombre de la competencia evaluada.
+    "nombre": " nombre del estudiante."
+    "email": "email del estudiante"
+    co"mpetencia_evaluada":
+      "nombre_competencia": Nombre de la competencia evaluada.
+      "nota": "nota competencia"
       recomendaciones: 2 frases con consejos prácticos para que el estudiante pueda mejorar en esta competencia.
     "conclusión": Comentario final alentador y motivador para el estudiante.
 input:
