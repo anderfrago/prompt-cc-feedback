@@ -1,5 +1,5 @@
  
-task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, genera una nueva pestaña en el excel con una fila para cada alumno y agrega ahí el resultado"
+task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, reduce a 1MB la respuesta eliminando otros contenidos"
 tone: docente
 output:
   language: español
