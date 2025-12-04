@@ -44,50 +44,50 @@
 
     <script>
         function download(filename, text) {
-            // var element = document.createElement('a');
-            // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-            // element.setAttribute('download', filename);
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
 
-            // element.style.display = 'none';
-            // document.body.appendChild(element);
+            element.style.display = 'none';
+            document.body.appendChild(element);
 
-            // element.click();
+            element.click();
 
 
-            document.body.innerHTML += `<div class="alert alert-primary d-flex align-items-center" role="alert">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-  </svg>
-  <div>
-    respuesta  generado, descargando pdf...
-  </div>
-</div>`;
+//             document.body.innerHTML += `<div class="alert alert-primary d-flex align-items-center" role="alert">
+//   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+//     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+//   </svg>
+//   <div>
+//     respuesta  generado, descargando pdf...
+//   </div>
+// </div>`;
 
-            document.body.innerHTML += `<zero-md src="${text}"></zero-md>`;
 
-            // post to https://md-to-pdf.fly.dev with output parameter to md-to-pdf.pdf
-            // fetch('https://md-to-pdf.fly.dev', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-            //         'output': 'md-to-pdf.pdf'
-            //     },
-            //     body: new URLSearchParams({
-            //         'markdown': text,
-            //          'engine': 'pdflatex',
-            //         // 'css': 'body { h1, h2 {    color: MidnightBlue;  }  }  h1 {    font-size: 2.5em;    margin-bottom: 0.5em;  }  h2 {    font-size: 2em;    margin-bottom: 0.5em;  }  p {    font-size: 1.2em;    line-height: 1.6;    margin-bottom: 1em;  }  pre {    background-color: #f4f4f4;    padding: 1em;    overflow-x: auto;    margin-bottom: 1em;  }  code {    font-family: Consolas, monospace;    background-color: #f4f4f4;    padding: 0.2em 0.4em;    border-radius: 4px;  }  ul, ol {    margin-bottom: 1em;    padding-left: 2em;  }  a {    color: DodgerBlue;    text-decoration: none;  }  a:hover {    text-decoration: underline;  }'
 
-            //     })
+//             // post to https://md-to-pdf.fly.dev with output parameter to md-to-pdf.pdf
+//             fetch('https://md-to-pdf.fly.dev', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+//                     'output': 'md-to-pdf.pdf'
+//                 },
+//                 body: new URLSearchParams({
+//                     'markdown': text,
+//                      'engine': 'pdflatex',
+//                     // 'css': 'body { h1, h2 {    color: MidnightBlue;  }  }  h1 {    font-size: 2.5em;    margin-bottom: 0.5em;  }  h2 {    font-size: 2em;    margin-bottom: 0.5em;  }  p {    font-size: 1.2em;    line-height: 1.6;    margin-bottom: 1em;  }  pre {    background-color: #f4f4f4;    padding: 1em;    overflow-x: auto;    margin-bottom: 1em;  }  code {    font-family: Consolas, monospace;    background-color: #f4f4f4;    padding: 0.2em 0.4em;    border-radius: 4px;  }  ul, ol {    margin-bottom: 1em;    padding-left: 2em;  }  a {    color: DodgerBlue;    text-decoration: none;  }  a:hover {    text-decoration: underline;  }'
 
-            // }).then(response => response.blob()).then(blob => {
-            //     var pdfElement = document.createElement('a');
-            //     pdfElement.setAttribute('href', URL.createObjectURL(blob));
-            //     pdfElement.setAttribute('download', 'md-to-pdf.pdf');
-            //     pdfElement.style.display = 'none';
-            //     document.body.appendChild(pdfElement);
-            //     pdfElement.click();
-            //     document.body.removeChild(pdfElement);
-            // });
+//                 })
+
+//             }).then(response => response.blob()).then(blob => {
+//                 var pdfElement = document.createElement('a');
+//                 pdfElement.setAttribute('href', URL.createObjectURL(blob));
+//                 pdfElement.setAttribute('download', 'md-to-pdf.pdf');
+//                 pdfElement.style.display = 'none';
+//                 document.body.appendChild(pdfElement);
+//                 pdfElement.click();
+//                 document.body.removeChild(pdfElement);
+//             });
         }
 
         // when button is clicked, get the value of the textarea and send it to puter.ai.chat
