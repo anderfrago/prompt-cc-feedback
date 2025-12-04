@@ -63,7 +63,7 @@
   </div>
 </div>`;
 
-            document.body.innerHTML += `<zero-md srcdoc="${text.replaceAll('"', '&quot;')}"></zero-md>`;
+            document.body.innerHTML += `<zero-md src="${text}"></zero-md>`;
 
             // post to https://md-to-pdf.fly.dev with output parameter to md-to-pdf.pdf
             // fetch('https://md-to-pdf.fly.dev', {
