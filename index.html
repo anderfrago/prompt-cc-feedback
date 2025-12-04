@@ -1,0 +1,79 @@
+<html>
+
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+
+    <form>
+        <textarea rows="10" cols="50" placeholder="Paste your Excel file here"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function download(filename, text) {
+            // var element = document.createElement('a');
+            // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            // element.setAttribute('download', filename);
+
+            // element.style.display = 'none';
+            // document.body.appendChild(element);
+
+            // element.click();
+                                document.body.innerHTML += `<p>Response obtained</p>`;
+
+ document.body.innerHTML += `<p>generating output</p>`;
+           
+
+            // post to https://md-to-pdf.fly.dev with output parameter to md-to-pdf.pdf
+            fetch('https://md-to-pdf.fly.dev', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'output': 'md-to-pdf.pdf' 
+                },
+                body: new URLSearchParams({
+    'markdown': text,
+    // 'engine': 'pdflatex',
+    // 'css': 'body { h1, h2 {    color: MidnightBlue;  }  }  h1 {    font-size: 2.5em;    margin-bottom: 0.5em;  }  h2 {    font-size: 2em;    margin-bottom: 0.5em;  }  p {    font-size: 1.2em;    line-height: 1.6;    margin-bottom: 1em;  }  pre {    background-color: #f4f4f4;    padding: 1em;    overflow-x: auto;    margin-bottom: 1em;  }  code {    font-family: Consolas, monospace;    background-color: #f4f4f4;    padding: 0.2em 0.4em;    border-radius: 4px;  }  ul, ol {    margin-bottom: 1em;    padding-left: 2em;  }  a {    color: DodgerBlue;    text-decoration: none;  }  a:hover {    text-decoration: underline;  }'
+                
+})
+
+            }).then(response => response.blob()).then(blob => {
+                var pdfElement = document.createElement('a');
+                pdfElement.setAttribute('href', URL.createObjectURL(blob));
+                pdfElement.setAttribute('download', 'md-to-pdf.pdf');
+                pdfElement.style.display = 'none';
+                document.body.appendChild(pdfElement);
+                pdfElement.click();
+                document.body.removeChild(pdfElement);
+            });
+        }
+
+        // when button is clicked, get the value of the textarea and send it to puter.ai.chat
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const textarea = document.querySelector('textarea');
+            const input = textarea.value;
+
+
+            fetch('https://raw.githubusercontent.com/anderfrago/prompt-cc-feedback/refs/heads/main/promt.toon').then(response => response.text()).then(prompt => {
+                console.log('Prompt loaded:', JSON.stringify(prompt));
+                document.body.innerHTML += `<p>Prompt loaded:</p>`;
+                document.body.innerHTML += `<p>Generating answers:</p>`;
+
+
+                (async () => {
+                    let answer = '';
+                    const resp = await puter.ai.chat(JSON.stringify(prompt) + ". The excel in text mode:" + input, {  model: 'gemini-2.5-flash', stream: true });
+                    
+                    for await (const part of resp) answer += part?.text.replaceAll('\n', '<br>');
+                    document.body.innerHTML += `<p>Generating output:</p>`;
+
+                    download('response.md', answer.replaceAll('<br>', '\n'));
+                })();
+            });
+        });
+    </script>
+</body>
+
+</html>
