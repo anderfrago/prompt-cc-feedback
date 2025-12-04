@@ -5,7 +5,7 @@ output:
   language: español
   format: email
   structure:
-   "indice alumna": 
+   "identificador alumno": 
         "nombre": " nombre del estudiante."
         "email": "email del estudiante"
         co"mpetencia_evaluada":
