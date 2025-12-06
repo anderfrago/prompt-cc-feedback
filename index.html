@@ -113,26 +113,26 @@
                         // Iterating through the detected list
                         peopleList.forEach(person => {
                             let personString = `${person.intro}%0D%0A`;
-                            personString += "COMPETENCIAS:%0D%0A";
+                            personString += "%3C%62%3EEVALUACIÓN COMPETENCIAS CLAVE:%3C%2F%62%3E%0D%0A";
                             // Loop through the competencies array
                             person.competencia_evaluada.forEach(comp => {
-                                personString += `%0D%0A📊  ${comp.nombre_competencia.trim()}%0D%0A`
-                                personString += ` ⭐  Nota: ${comp.nota}%0D%0A`;
-                                personString += ` 📘  Rubrica: ${comp.rubrica}%0D%0A`;
-                                personString += ` ✅  Recomendaciones:%0D%0A`;
+                                personString += `%0D%0A  %3C%62%3E${comp.nombre_competencia.trim()}%3C%2F%62%3E%0D%0A`
+                                personString += `%09   Nota: ${comp.nota}%0D%0A`;
+                                personString += `%09   Rubrica: ${comp.rubrica}%0D%0A`;
+                                personString += `%09   Recomendaciones:%0D%0A`;
 
                                 if (!Array.isArray(comp.recomendaciones)) {
                                     console.error("Error: The comp.recomendaciones provided is not an array.");
                                 } else {
                                     // Loop through the recommendations array
                                     comp.recomendaciones.forEach(rec => {
-                                        personString += `     - ${rec}%0D%0A`;
+                                        personString += `%09%09     - ${rec}%0D%0A%0D%0A`;
                                     });
 
                                 }
                             });
 
-                            personString += `${person.conclusión}%0D%0A`;
+                            personString += `${person.conclusión}%0D%0A%0D%0A`;
                             personString += `Atentamente el equipo docente.`;
 
                             document.getElementById("results").innerHTML +=
