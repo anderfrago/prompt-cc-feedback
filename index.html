@@ -135,7 +135,7 @@
                                 personString += `%0D%0A%0D%0A  ${comp.nombre_competencia.trim().toUpperCase()}%0D%0A`
                                 personString += `%09   Nota: ${comp.nota}%0D%0A`;
                                 personString += `%09   Rúbrica:%0D%0A`;
-                                personString += `%09     - {comp.rubrica}%0D%0A`;
+                                personString += `%09     - ${comp.rubrica}%0D%0A`;
                                 personString += `%09   Recomendaciones:%0D%0A`;
 
                                 if (!Array.isArray(comp.recomendaciones)) {
@@ -155,9 +155,11 @@
                             document.getElementById("results").innerHTML +=
                                 `
                             <li class="list-group-item">
+                                <label>
                                 <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${person.email}&su=Retroalimentación competencias clave&body=${personString}">
-                                   <input type="checkbox" > ${person.nombre}</input>
-                                </a></br>
+                                   <input type="checkbox" />    ${person.nombre}
+                                </a>
+                                </label></br>
                             </li>
                             `
 
