@@ -6,7 +6,7 @@ output:
    "id": "número incremental empezando en 0" 
         "nombre": " nombre del estudiante."
         "email": "email del estudiante"
-        "intro": "breve frase introductoria comenzando por Hola"
+        "intro": "breve frase introductoria comenzando"
         "competencia_evaluada":
           "nombre_competencia": "Nombre de la competencia evaluada"
           "nota": "nota competencia"
