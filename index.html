@@ -94,7 +94,7 @@
                 (async () => {
                     let answer = '';
                     const resp = await puter.ai.chat(JSON.stringify(prompt) + ". The excel in text mode:" + input, {
-                        model: 'gemini-3-pro-preview', stream: true, config: {
+                        model: 'gemini-2.5-flash', stream: true, config: {
                             responseMimeType: "application/json"
                         }
                     });
