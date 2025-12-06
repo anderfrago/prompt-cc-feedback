@@ -132,9 +132,9 @@
                             let personString = `${person.intro}%0D%0A%0D%0A`;
                             // Loop through the competencies array
                             person.competencia_evaluada.forEach(comp => {
-                                personString += `%0D%0A  ${comp.nombre_competencia.trim().toUpperCase()}%0D%0A`
+                                personString += `%0D%0A%0D%0A  ${comp.nombre_competencia.trim().toUpperCase()}%0D%0A`
                                 personString += `%09   Nota: ${comp.nota}%0D%0A`;
-                                personString += `%09   Rúbrica: ${comp.rubrica}%0D%0A`;
+                                personString += `%09   Rúbrica:%0D%0A%09 ${comp.rubrica}%0D%0A`;
                                 personString += `%09   Recomendaciones:%0D%0A`;
 
                                 if (!Array.isArray(comp.recomendaciones)) {
@@ -142,7 +142,7 @@
                                 } else {
                                     // Loop through the recommendations array
                                     comp.recomendaciones.forEach(rec => {
-                                        personString += `%09%09     - ${rec}`;
+                                        personString += `%09%09     - ${rec}%0D%0A`;
                                     });
 
                                 }
@@ -155,7 +155,7 @@
                                 `
                             <li class="list-group-item">
                                 <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${person.email}&su=Retroalimentación competencias clave&body=${personString}">
-                                   <input type="checkbox" /> ${person.nombre}
+                                   <input type="checkbox" > ${person.nombre}</input>
                                 </a></br>
                             </li>
                             `
