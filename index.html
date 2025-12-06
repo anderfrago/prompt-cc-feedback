@@ -117,7 +117,7 @@
                             person.competencia_evaluada.forEach(comp => {
                                 personString += `%0D%0A  {comp.nombre_competencia.trim().toUpperCase()}%0D%0A`
                                 personString += `%09   Nota: ${comp.nota}%0D%0A`;
-                                personString += `%09   Rubrica: ${comp.rubrica}%0D%0A`;
+                                personString += `%09   Rúbrica: ${comp.rubrica}%0D%0A`;
                                 personString += `%09   Recomendaciones:%0D%0A`;
 
                                 if (!Array.isArray(comp.recomendaciones)) {
