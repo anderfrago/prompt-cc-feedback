@@ -144,7 +144,9 @@
                         });
 
                     }
-
+                    [].forEach.call(document.querySelectorAll('.alert'), function (el) {
+                        el.style.visibility = 'hidden';
+                    });
                 })();
             });
         });
