@@ -142,19 +142,21 @@
                                 } else {
                                     // Loop through the recommendations array
                                     comp.recomendaciones.forEach(rec => {
-                                        personString += `%09%09     - ${rec}%0D%0A`;
+                                        personString += `%09%09     - ${rec}`;
                                     });
 
                                 }
                             });
 
-                            personString += `%0D%0A%0D%0A${person.conclusión}%0D%0A%0D%0A`;
+                            personString += `%0D%0A${person.conclusión}%0D%0A%0D%0A`;
                             personString += `Atentamente el equipo docente.`;
 
                             document.getElementById("results").innerHTML +=
                                 `
                             <li class="list-group-item">
-                                <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${person.email}&su=Retroalimentación competencias clave&body=${personString}">${person.nombre}</a></br>
+                                <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${person.email}&su=Retroalimentación competencias clave&body=${personString}">
+                                   <input type="checkbox" /> ${person.nombre}
+                                </a></br>
                             </li>
                             `
 
