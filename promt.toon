@@ -1,12 +1,12 @@
  
-task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, reduce a 1MB la respuesta eliminando otros contenidos"
+task: "Proporciona una retroalimentacíon constructiva sobre la evaluación de las competencias clave por cada uno de los alumnos en el documento de entrada, reduce la respuesta eliminando otros contenidos"
 tone: docente
 output:
   "structure": "un array compuesto por los siguentes valores de cada alumno"
    "id": "número incremental empezando en 0" 
         "nombre": " nombre del estudiante."
         "email": "email del estudiante"
-        "intro": "breve frase introductoria, por ejemplo Hola nombre,"
+        "intro": "breve frase introductoria"
         "competencia_evaluada":
           "nombre_competencia": "Nombre de la competencia evaluada"
           "nota": "nota competencia"
