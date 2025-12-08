@@ -12,7 +12,7 @@ output:
           "nota": "nota competencia"
           "rubrica": "mensaje obtenido desde los niveles de competencia"
           recomendaciones: 2 frases con consejos prácticos para que el estudiante pueda mejorar en esta competencia.
-        "conclusión": Comentario final alentador y motivador para el estudiante.
+        "conclusión": "nota final + Comentario final alentador y motivador para el estudiante."
 input:
   format: Excel file
   sheet_name: NOTAS_CC
