@@ -66,11 +66,7 @@
                             </div>
                             `
                 msgBox.style.display = "block";
-                setTimeout(function () {
-                    history.go(0);
-                }, 2000);
-
-
+                setTimeout(() => document.location.reload(), 2000);
             }
             fetch('https://raw.githubusercontent.com/anderfrago/prompt-cc-feedback/refs/heads/main/promt.toon').then(response => response.text()).then(prompt => {
                 //console.log('Prompt loaded:', JSON.stringify(prompt));
@@ -144,21 +140,20 @@
                     } else {
                         // Iterating through the detected list
                         peopleList.forEach(person => {
-                            let personString = `${person.intro}%0D%0A%0D%0A`;
+                            let personString = `${person.intro}%0D%0A`;
                             // Loop through the competencies array
                             person.competencia_evaluada.forEach(comp => {
-                                personString += `%0D%0A%0D%0A  ${comp.nombre_competencia.trim().toUpperCase()}%0D%0A`
-                                personString += `%09   Nota: ${comp.nota}%0D%0A`;
-                                personString += `%09   Rúbrica:%0D%0A`;
-                                personString += `%09     - ${comp.rubrica}%0D%0A`;
-                                personString += `%09   Recomendaciones:%0D%0A`;
+                                personString += `%0D%0A  ${comp.nombre_competencia.trim().toUpperCase()}.  Nota: ${comp.nota}  %0D%0A`
+                                personString += `%09%09   Rúbrica:%0D%0A`;
+                                personString += `%09%09     - ${comp.rubrica}%0D%0A`;
 
                                 if (!Array.isArray(comp.recomendaciones)) {
                                     console.error("Error: The comp.recomendaciones provided is not an array.");
                                 } else {
+                                    personString += `%09%09   Recomendaciones:%0D%0A`;
                                     // Loop through the recommendations array
                                     comp.recomendaciones.forEach(rec => {
-                                        personString += `%09%09     - ${rec}%0D%0A`;
+                                        personString += `%09%09%09     - ${rec}%0D%0A`;
                                     });
 
                                 }
@@ -170,11 +165,11 @@
                             document.getElementById("results").innerHTML +=
                                 `
                             <li class="list-group-item">
-                                <label>
+                                <input type="checkbox" /> 
                                 <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${person.email}&su=Retroalimentación competencias clave&body=${personString}">
-                                   <input type="checkbox" />    ${person.nombre}
+                                    ${person.nombre}
                                 </a>
-                                </label></br>
+                                </br>
                             </li>
                             `
 
